@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 36px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-text);
+}
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 8px;
+  }
+
+  .link {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+}

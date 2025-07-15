@@ -1,14 +1,18 @@
-import styles from "./Root.module.css"
-import { Outlet } from "react-router-dom"
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import styles from "./Root.module.css";
+import { Outlet } from "react-router-dom";
 
 const Root = () => {
   return (
     <div className={styles.container}>
-      <h1>Navbar up here</h1>
-      <Outlet />
-      <h1>Footer down here</h1>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;
