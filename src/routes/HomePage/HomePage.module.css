@@ -1,5 +1,6 @@
 .homeContainer {
   position: relative;
+  padding: 0px 32px;
 }
 
 .heroSection {
@@ -41,6 +42,7 @@
 
 .titleDescription {
   margin-top: 12px;
+  text-align: center;
 }
 
 .heroCta {
@@ -58,9 +60,17 @@
 }
 
 .heroImageContainer {
-  width: 500px;
-  height: 500px;
-  background-image: url("../../assets/hero-image.png");
+  flex: 1;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+}
+
+.heroImageContainer img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .backgroundGradient {
@@ -74,4 +84,84 @@
   width: 100%;
   height: 100vh;
   z-index: -1;
+}
+
+@media (max-width: 1080px) {
+  .homeContainer {
+    padding: 0 16px;
+  }
+
+  .titleTop {
+    margin-right: 48px;
+    text-align: center;
+  }
+
+  .titleMiddle {
+    margin-right: 72px;
+    text-align: center;
+  }
+
+  .titleBottom {
+    margin-left: 48px;
+    text-align: center;
+  }
+
+  .heroSection {
+    flex-direction: column;
+    height: 100%;
+    padding: 72px 0px;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 576px) {
+  .titleTop {
+    font-size: 48px;
+  }
+
+  .titleMiddle {
+    font-size: 56px;
+  }
+
+  .titleBottom {
+    font-size: 48px;
+  }
+
+  .heroCta {
+    margin-top: 24px;
+    margin-right: 0;
+    align-self: center;
+  }
+}
+
+@media (max-width: 467px) {
+  .titleTop {
+    font-size: 36px;
+  }
+
+  .titleMiddle {
+    font-size: 48px;
+  }
+
+  .titleBottom {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .titleTop {
+    font-size: 28px;
+  }
+
+  .titleMiddle {
+    font-size: 36px;
+  }
+
+  .titleBottom {
+    font-size: 28px;
+  }
+
+  .titleDescription {
+    font-size: 12px;
+  }
 }
