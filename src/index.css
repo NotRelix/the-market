@@ -2,6 +2,7 @@
 
 :root {
   --primary-text: black;
+  --primary-text-dark: white;
   --neutral-text-dark: rgb(170, 170, 170);
   --primary-bg: white;
   --footer-bg: rgb(30, 30, 30);

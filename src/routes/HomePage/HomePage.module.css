@@ -57,6 +57,12 @@
   font-weight: 700;
   color: var(--primary-text);
   text-decoration: none;
+  transition: background-color 100ms ease-in-out;
+}
+
+.heroCta:hover {
+  background-color: var(--footer-bg);
+  color: var(--primary-text-dark);
 }
 
 .heroImageContainer {
@@ -145,6 +151,10 @@
 
   .titleBottom {
     font-size: 36px;
+  }
+
+  .titleDescription {
+    font-size: 14px;
   }
 }
 
