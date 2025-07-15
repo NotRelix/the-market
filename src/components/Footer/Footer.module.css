@@ -1,9 +1,14 @@
 footer {
   display: flex;
-  justify-content: space-between;
-  padding: 48px 72px;
+  flex-direction: column;
   background-color: var(--footer-bg);
   color: var(--footer-text);
+}
+
+.mainContainer {
+  display: flex;
+  padding: 48px 72px;
+  justify-content: space-between;
 }
 
 .brandName {
@@ -38,14 +43,27 @@ ul {
   gap: 16px;
 }
 
+li,
+.description {
+  color: var(--neutral-text-dark);
+}
+
+.bottomSection {
+  border-top: 1px solid var(--border-dark);
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--neutral-text-dark);
+}
+
 @media (max-width: 992px) {
-  footer {
+  .mainContainer {
     padding: 48px 36px;
   }
 }
 
 @media (max-width: 768px) {
-  footer {
+  .mainContainer {
     flex-direction: column;
     gap: 32px;
   }
@@ -56,7 +74,7 @@ ul {
 }
 
 @media (max-width: 480px) {
-  footer {
+  .mainContainer {
     padding: 48px 16px;
   }
 

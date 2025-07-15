@@ -2,8 +2,10 @@
 
 :root {
   --primary-text: black;
+  --neutral-text-dark: rgb(170, 170, 170);
   --footer-bg: rgb(30, 30, 30);
   --footer-text: rgb(229, 229, 229);
+  --border-dark: rgb(85, 85, 85);
 }
 
 * {
