@@ -7,6 +7,7 @@ const ShopPage = () => {
     async function loadProducts() {
       const response = await fetchProducts();
       setProducts(response);
+      console.log(response);
     }
 
     loadProducts();
