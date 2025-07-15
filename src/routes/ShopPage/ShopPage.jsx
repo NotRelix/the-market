@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
+import { fetchProducts } from "../../components/api/api";
+
 const ShopPage = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await fetchProducts();
+      setProducts(response);
+    }
+
+    loadProducts();
+  }, []);
   return (
-    <div>Shopping Page</div>
+    <div>
+      <h1>Shopping Page</h1>
+    </div>
   )
 }
 

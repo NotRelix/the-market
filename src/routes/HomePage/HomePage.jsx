@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
-import { fetchProducts } from "../../components/api/api";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
-    useEffect(() => {
-      async function loadProducts() {
-        const fetchedProducts = await fetchProducts();
-        setProducts(fetchedProducts);
-        console.log(fetchedProducts);
-      }
-      loadProducts();
-    }, []);
-    
   return (
-    <div>Home Page</div>
+    <div>
+      <h1>Home Page</h1>
+      <Link to={"/shop"}>Shop Now</Link>
+    </div>
   )
 }
 
