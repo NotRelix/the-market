@@ -18,8 +18,12 @@ const Navbar = () => {
     <nav>
       <h1>The Market</h1>
       <div className={styles.links}>
-        {navLinks.map((navLink, index) => (
-          <Link to={navLink.destination} className={styles.link} key={index}>
+        {navLinks.map((navLink) => (
+          <Link
+            to={navLink.destination}
+            className={styles.link}
+            key={navLink.name}
+          >
             {navLink.name}
           </Link>
         ))}

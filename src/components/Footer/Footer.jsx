@@ -2,6 +2,34 @@ import styles from "./footer.module.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const usefulLinks = [
+    {
+      name: "Home",
+    },
+    {
+      name: "Shop",
+    },
+    {
+      name: "Repository",
+    },
+    {
+      name: "My Github",
+    },
+  ];
+  const contacts = [
+    {
+      name: "LinkedIn",
+    },
+    {
+      name: "Email",
+    },
+    {
+      name: "Github",
+    },
+    {
+      name: "Facebook",
+    },
+  ];
   return (
     <footer>
       <div className={styles.mainContainer}>
@@ -18,19 +46,17 @@ const Footer = () => {
           <div>
             <h1 className={styles.heading}>Useful Links</h1>
             <ul>
-              <li>Home</li>
-              <li>Shop</li>
-              <li>Repository</li>
-              <li>My Github</li>
+              {usefulLinks.map((link) => (
+                <li key={link.name}>{link.name}</li>
+              ))}
             </ul>
           </div>
           <div>
             <h1 className={styles.heading}>Contact</h1>
             <ul>
-              <li>LinkedIn</li>
-              <li>Email</li>
-              <li>Github</li>
-              <li>Facebook</li>
+              {contacts.map((link) => (
+                <li key={link.name}>{link.name}</li>
+              ))}
             </ul>
           </div>
         </div>
