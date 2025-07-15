@@ -3,8 +3,10 @@
 :root {
   --primary-text: black;
   --neutral-text-dark: rgb(170, 170, 170);
+  --primary-bg: white;
   --footer-bg: rgb(30, 30, 30);
   --footer-text: rgb(229, 229, 229);
+  --border: rgb(53, 53, 53);
   --border-dark: rgb(85, 85, 85);
 }
 

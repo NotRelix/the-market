@@ -3,8 +3,64 @@
 }
 
 .heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 36px;
   height: 100vh;
+  min-height: 640px;
+  gap: 32px;
+}
+
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleTop {
+  font-size: 56px;
+  font-weight: 500;
+  margin-left: 24px;
+}
+
+.titleMiddle {
+  font-size: 74px;
+  font-weight: 800;
+}
+
+.titleBottom {
+  font-size: 56px;
+  font-weight: 500;
+  margin-left: 80px;
+}
+
+.titleDescription {
+  margin-top: 12px;
+}
+
+.heroCta {
+  align-self: flex-end;
+  margin-top: 36px;
+  margin-right: 64px;
+  background-color: var(--primary-bg);
+  padding: 16px 32px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
+.heroImageContainer {
+  width: 500px;
+  height: 500px;
+  background-image: url("../../assets/hero-image.png");
 }
 
 .backgroundGradient {
