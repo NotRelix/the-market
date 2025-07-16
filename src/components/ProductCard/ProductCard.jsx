@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import styles from './ProductCard.module.css'
+import StarRatings from 'react-star-ratings';
 
 const ProductCard = ({ product }) => {
   return (
@@ -9,7 +10,15 @@ const ProductCard = ({ product }) => {
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{product.title}</h1>
-        <span>{product.rating.rate} stars | {product.rating.count}</span>
+        <div className={styles.starContainer}>
+          <StarRatings
+            rating={product.rating.rate}
+            starRatedColor={'rgb(255, 196, 0)'}
+            starDimension='24px'
+            starSpacing='0px'
+          />
+          <span className={styles.ratingCount}>({product.rating.count})</span>
+        </div>
         <span className={styles.price}>${product.price}</span>
       </div>
     </div>

@@ -16,7 +16,7 @@ const navLinks = [
 const Navbar = () => {
   return (
     <nav>
-      <h1>The Market</h1>
+      <Link className={styles.logo}>The Market</Link>
       <div className={styles.links}>
         {navLinks.map((navLink) => (
           <Link
