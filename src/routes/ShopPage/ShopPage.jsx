@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "../../components/api/api";
 import Loading from "../../components/Loading/Loading";
 import { useOutletContext } from "react-router-dom";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const ShopPage = () => {
   const { loading, setLoading } = useOutletContext();
@@ -19,15 +20,13 @@ const ShopPage = () => {
   }, [setLoading]);
 
   if (loading) {
-    return(<Loading />)
+    return (<Loading />)
   }
 
   return (
     <section>
       {products.map((product) => (
-        <div>
-          <h1>{product.title}</h1>
-        </div>
+        <ProductCard key={product.id} product={product} />
       ))}
     </section>
   )
