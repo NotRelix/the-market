@@ -3,6 +3,7 @@ import { fetchProducts } from "../../components/api/api";
 import Loading from "../../components/Loading/Loading";
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import styles from './ShopPage.module.css'
 
 const ShopPage = () => {
   const { loading, setLoading } = useOutletContext();
@@ -24,10 +25,12 @@ const ShopPage = () => {
   }
 
   return (
-    <section>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <section className={styles.shopContainer}>
+      <div className={styles.productsContainer}>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </section>
   )
 }

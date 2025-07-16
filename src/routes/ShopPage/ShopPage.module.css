@@ -1,0 +1,12 @@
+.shopContainer {
+  display: flex;
+  justify-content: center;
+  padding: 72px 0;
+}
+
+.productsContainer {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}

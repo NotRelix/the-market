@@ -3,8 +3,15 @@ import styles from './ProductCard.module.css'
 
 const ProductCard = ({ product }) => {
   return (
-    <div>
-      <h1>{product.title}</h1>
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src={product.image} alt={product.title} />
+      </div>
+      <div className={styles.textContainer}>
+        <h1 className={styles.title}>{product.title}</h1>
+        <span>{product.rating.rate} stars | {product.rating.count}</span>
+        <span className={styles.price}>${product.price}</span>
+      </div>
     </div>
   )
 }
