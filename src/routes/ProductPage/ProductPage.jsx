@@ -9,6 +9,7 @@ const ProductPage = () => {
   const { productId } = useParams();
   const { loading, setLoading } = useOutletContext();
   const location = useLocation();
+  const [quantity, setQuantity] = useState(1);
 
   const [product, setProduct] = useState(location.state?.product);
   useEffect(() => {
@@ -24,6 +25,15 @@ const ProductPage = () => {
     }
     loadSingleProduct();
   }, [productId, product, setLoading]);
+
+  function handleMinus() {
+    if (quantity === 1) return;
+    setQuantity(prev => prev - 1);
+  }
+
+  function handlePlus() {
+    setQuantity(prev => prev + 1);
+  }
 
   if (loading) return <Loading />
 
@@ -43,13 +53,23 @@ const ProductPage = () => {
               starDimension={'20px'}
               starSpacing='0px'
             />
-            <span>{product.rating.rate}</span>
-            <span>|</span>
-            <span>Ratings: {product.rating.count}</span>
+            <span className={styles.rate}>{product.rating.rate}</span>
+            <span className={styles.separator}>|</span>
+            <span className={styles.count}>Ratings: {product.rating.count}</span>
           </div>
           <span>Category: {product.category}</span>
-          <span>{product.price}</span>
-          <span>{product.description}</span>
+          <span className={styles.price}>${product.price}</span>
+          <span className={styles.description}>{product.description}</span>
+          <span>Quantity: </span>
+          <div className={styles.quantityContainer}>
+            <button className={styles.minus} onClick={handleMinus}>-</button>
+            <input className={styles.quantityInput} type="number" value={quantity} />
+            <button className={styles.plus} onClick={handlePlus}>+</button>
+          </div>
+          <div className={styles.buyButtons}>
+            <button className={styles.buyNow}>Buy Now</button>
+            <button className={styles.addToCart}>Add to Cart</button>
+          </div>
         </div>
       </div>
     </section>
