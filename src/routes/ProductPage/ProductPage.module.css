@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 72px 0;
+}
+
+.cardContainer {
+  display: flex;
+  border: 1px solid var(--card-border);
+  padding: 16px;
+  width: 1000px;
+  gap: 16px;
+}
+
+.imageContainer {
+  display: flex;
+  flex: 4;
+  background-position: top;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+}
