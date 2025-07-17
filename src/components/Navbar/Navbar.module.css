@@ -7,7 +7,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 8px 36px;
-  z-index: 999;
+  z-index: 9999;
   background: rgba(255, 255, 255, 0.798);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -34,7 +34,59 @@ nav {
 }
 
 .menu {
+  position: fixed;
+  right: 8px;
+  top: 11px;
   display: none;
+  z-index: 10001;
+  cursor: pointer;
+}
+
+.menuSlider {
+  position: fixed;
+  background-color: var(--primary-bg);
+  width: 200px;
+  height: 100vh;
+  padding-top: 40px;
+  top: 0;
+  right: 0;
+  transform: translateX(0);
+  transition: transform 100ms ease-in-out;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuLink {
+  color: var(--primary-text);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+.menuLink:hover {
+  background-color: var(--link-hover-bg);
+}
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  transition: opacity 100ms ease-in-out;
+}
+
+.hidden {
+  transform: translateX(100%);
+}
+
+.backdropHidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -48,5 +100,9 @@ nav {
 
   .menu {
     display: block;
+  }
+
+  .shoppingCart {
+    margin-right: 44px;
   }
 }

@@ -10,7 +10,7 @@ const Root = () => {
     <div className={styles.container}>
       <Navbar />
       <main>
-        <Outlet context={{loading, setLoading}} />
+        <Outlet context={{ loading, setLoading }} />
       </main>
       <Footer />
     </div>
