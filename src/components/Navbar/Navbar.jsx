@@ -42,7 +42,7 @@ const Navbar = () => {
         <Link to={'/'} className={styles.menuLink} onClick={toggleMenu} >Home</Link>
         <Link to={'shop'} className={styles.menuLink} onClick={toggleMenu}>Shop</Link>
       </div>
-      <div className={`${styles.backdrop} ${(menuOpen) ? "" : styles.backdropHidden}`}></div>
+      <div onClick={() => setMenuOpen(false)} className={`${styles.backdrop} ${(menuOpen) ? "" : styles.backdropHidden}`}></div>
     </>
   );
 };

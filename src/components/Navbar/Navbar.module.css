@@ -107,6 +107,7 @@ nav {
 @media (max-width: 768px) {
   nav {
     padding: 8px;
+    padding-left: 16px;
   }
 
   .link {

@@ -1,5 +1,6 @@
 import ErrorPage from "./ErrorPage/ErrorPage";
 import HomePage from "./HomePage/HomePage";
+import ProductPage from "./ProductPage/ProductPage";
 import Root from "./Root/Root";
 import ShopPage from "./ShopPage/ShopPage";
 
@@ -17,6 +18,11 @@ const routes = [
         path: "shop",
         element: <ShopPage />,
       },
+      {
+        path: "shop/product/:productId",
+        element: <ProductPage />,
+        errorElement: <ErrorPage />,
+      }
     ]
   },
 ]

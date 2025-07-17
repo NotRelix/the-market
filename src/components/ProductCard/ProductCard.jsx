@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import styles from './ProductCard.module.css'
 import StarRatings from 'react-star-ratings';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const [starSize, setStarSize] = useState('');
@@ -16,7 +17,7 @@ const ProductCard = ({ product }) => {
     return () => window.removeEventListener('resize', updateStarChanges);
   }, []);
   return (
-    <div className={styles.container}>
+    <Link state={{ product }} to={`product/${product.id}`} className={styles.container}>
       <div className={styles.imageContainer}>
         <img className={styles.image} src={product.image} alt={product.title} />
       </div>
@@ -34,7 +35,7 @@ const ProductCard = ({ product }) => {
         </div>
         <span className={styles.price}>${product.price}</span>
       </div>
-    </div>
+    </Link>
   )
 }
 
