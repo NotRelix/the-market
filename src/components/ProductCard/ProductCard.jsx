@@ -1,8 +1,20 @@
 import PropTypes from 'prop-types'
 import styles from './ProductCard.module.css'
 import StarRatings from 'react-star-ratings';
+import { useEffect, useState } from 'react';
 
 const ProductCard = ({ product }) => {
+  const [starSize, setStarSize] = useState('');
+  useEffect(() => {
+    const updateStarChanges = () => {
+      const variables = getComputedStyle(document.documentElement);
+      setStarSize(variables.getPropertyValue('--star-size').trim());
+    }
+
+    updateStarChanges();
+    window.addEventListener('resize', updateStarChanges);
+    return () => window.removeEventListener('resize', updateStarChanges);
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -12,9 +24,10 @@ const ProductCard = ({ product }) => {
         <h1 className={styles.title}>{product.title}</h1>
         <div className={styles.starContainer}>
           <StarRatings
+            className={styles.star}
             rating={product.rating.rate}
             starRatedColor={'rgb(255, 196, 0)'}
-            starDimension='24px'
+            starDimension={starSize}
             starSpacing='0px'
           />
           <span className={styles.ratingCount}>({product.rating.count})</span>

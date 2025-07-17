@@ -10,3 +10,22 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
+
+@media (max-width: 660px) {
+  .productsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .productsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 8px;
+  }
+}
+
+@media (max-width: 330px) {
+  .productsContainer {
+    grid-template-columns: 1fr;
+  }
+}
