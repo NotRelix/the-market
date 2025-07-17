@@ -4,6 +4,7 @@ import { fetchSingleProduct } from "../../components/api/api";
 import Loading from "../../components/Loading/Loading";
 import styles from './ProductPage.module.css'
 import StarRatings from "react-star-ratings";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -39,6 +40,7 @@ const ProductPage = () => {
 
   return (
     <section className={styles.container}>
+      <ScrollToTop />
       <div className={styles.cardContainer}>
         <div className={styles.imageContainer}>
           <img className={styles.image} src={product.image} alt={product.title} />

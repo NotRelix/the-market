@@ -11,6 +11,7 @@
   border: 1px solid var(--card-border);
   padding: 16px;
   width: 1000px;
+  height: fit-content;
   gap: 16px;
 }
 
