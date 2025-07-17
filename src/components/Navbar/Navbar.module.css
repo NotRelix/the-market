@@ -25,18 +25,33 @@ nav {
 .links {
   display: flex;
   align-items: center;
-  gap: 24px;
 }
 
 .link {
   text-decoration: none;
   color: var(--primary-text);
+  padding: 8px 20px;
+  margin-left: -8px;
+}
+
+.link:hover,
+.shoppingCart:hover,
+.menu:hover {
+  background-color: var(--link-hover-bg);
+}
+
+.shoppingCart {
+  padding: 8px;
+  box-sizing: content-box;
+  cursor: pointer;
 }
 
 .menu {
+  box-sizing: content-box;
+  padding: 8px;
   position: fixed;
   right: 8px;
-  top: 11px;
+  top: 9px;
   display: none;
   z-index: 10001;
   cursor: pointer;
@@ -47,7 +62,7 @@ nav {
   background-color: var(--primary-bg);
   width: 200px;
   height: 100vh;
-  padding-top: 40px;
+  padding-top: 60px;
   top: 0;
   right: 0;
   transform: translateX(0);
