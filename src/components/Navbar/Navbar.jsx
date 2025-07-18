@@ -1,8 +1,9 @@
 import styles from "./Navbar.module.css";
 import { Menu, ShoppingCart, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartCardSlider from "../CartCardSlider/CartCardSlider";
+import SubtotalCartSlider from "../SubtotalCartSlider/SubtotalCartSlider";
 import PropTypes from "prop-types";
 
 const navLinks = [
@@ -19,6 +20,22 @@ const navLinks = [
 const Navbar = ({ cart, editCart, deleteProduct }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const totalCost = cart
+    .reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
+    .toFixed(2);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   function toggleMenu() {
     setMenuOpen(!menuOpen);
   }
@@ -46,13 +63,16 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
       </nav>
       <Menu onClick={toggleMenu} className={styles.menu} />
       <div className={`${styles.menuSlider} ${menuOpen ? "" : styles.hidden}`}>
+        <span className={styles.menuHeader}>Menu</span>
         <hr />
-        <Link to={"/"} className={styles.menuLink} onClick={toggleMenu}>
-          Home
-        </Link>
-        <Link to={"shop"} className={styles.menuLink} onClick={toggleMenu}>
-          Shop
-        </Link>
+        <div className={styles.menuLinks}>
+          <Link to={"/"} className={styles.menuLink} onClick={toggleMenu}>
+            Home
+          </Link>
+          <Link to={"shop"} className={styles.menuLink} onClick={toggleMenu}>
+            Shop
+          </Link>
+        </div>
       </div>
       <div
         onClick={() => setMenuOpen(false)}
@@ -61,7 +81,10 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
         }`}
       ></div>
       <div className={`${styles.cartSlider} ${cartOpen ? "" : styles.hidden}`}>
-        <X className={styles.closeCart} onClick={() => setCartOpen(false)} />
+        <div className={styles.topContainer}>
+          <span>Shopping Cart</span>
+          <X className={styles.closeCart} onClick={() => setCartOpen(false)} />
+        </div>
         <hr />
 
         {cart.length > 0 ? (
@@ -87,6 +110,7 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
             <span>Your Cart is Empty</span>
           </div>
         )}
+        <SubtotalCartSlider total={totalCost} setCartOpen={setCartOpen} />
       </div>
       <div
         onClick={() => setCartOpen(false)}
