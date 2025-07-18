@@ -28,12 +28,21 @@ const ProductPage = () => {
   }, [productId, product, setLoading]);
 
   function handleMinus() {
-    if (quantity === 1) return;
+    if (quantity <= 1) return;
     setQuantity(prev => prev - 1);
   }
 
   function handlePlus() {
     setQuantity(prev => prev + 1);
+  }
+
+  function handleChange(e) {
+    if (e.target.value === '') {
+      setQuantity(1);
+      return;
+    }
+    if (e.target.value < 1) return;
+    setQuantity(e.target.value);
   }
 
   if (loading) return <Loading />
@@ -65,7 +74,7 @@ const ProductPage = () => {
           <span className={styles.quantityText}>Quantity: </span> 
           <div className={styles.quantityContainer}>
             <button className={styles.minus} onClick={handleMinus}>-</button>
-            <input className={styles.quantityInput} type="number" value={quantity} />
+            <input min="1" className={styles.quantityInput} type="number" value={quantity} onChange={handleChange} />
             <button className={styles.plus} onClick={handlePlus}>+</button>
           </div>
           <div className={styles.buyButtons}>
