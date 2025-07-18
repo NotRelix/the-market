@@ -18,6 +18,10 @@ hr {
   border: 1px solid var(--separator);
 }
 
+.separator {
+  margin: 4px 0;
+}
+
 .logo {
   cursor: pointer;
   font-size: 24px;
@@ -79,9 +83,13 @@ hr {
 }
 
 .cartSlider {
-  width: 300px;
+  width: 400px;
   z-index: 10001;
   padding: 0px;
+}
+
+.cartCardContainer {
+  padding: 8px;
 }
 
 .closeCart {

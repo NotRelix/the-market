@@ -12,7 +12,7 @@
   --border: rgb(53, 53, 53);
   --border-dark: rgb(85, 85, 85);
   --card-border: rgb(226, 226, 226);
-  --link-hover-bg: rgb(240, 240, 240);
+  --link-hover-bg: rgba(240, 240, 240, 0.365);
   --separator: rgb(238, 238, 238);
 }
 

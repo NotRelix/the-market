@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
 import heroImage from '../../assets/hero-image.png'
+import ScrollToTop from "../../components/ScrollToTop";
 
 const HomePage = () => {
   return (
     <section className={styles.homeContainer}>
+      <ScrollToTop />
       <div className={styles.heroSection}>
         <div className={styles.heroHeader}>
           <h1 className={styles.heroTitle}>

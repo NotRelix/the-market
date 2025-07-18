@@ -22,7 +22,7 @@ const Root = () => {
   console.log(cart);
   return (
     <div className={styles.container}>
-      <Navbar />
+      <Navbar cart={cart} />
       <main>
         <Outlet context={{ loading, setLoading, addToCart }} />
       </main>
