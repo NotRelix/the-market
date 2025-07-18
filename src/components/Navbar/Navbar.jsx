@@ -16,7 +16,7 @@ const navLinks = [
   },
 ];
 
-const Navbar = ({ cart, editCart }) => {
+const Navbar = ({ cart, editCart, deleteProduct }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   function toggleMenu() {
@@ -69,7 +69,11 @@ const Navbar = ({ cart, editCart }) => {
             {cart.map((item, index) => {
               return (
                 <React.Fragment key={item.product.id}>
-                  <CartCardSlider item={item} editCart={editCart} />
+                  <CartCardSlider
+                    item={item}
+                    editCart={editCart}
+                    deleteProduct={deleteProduct}
+                  />
                   {index < cart.length - 1 && (
                     <hr className={styles.separator} />
                   )}
@@ -111,6 +115,7 @@ Navbar.propTypes = {
     quantity: PropTypes.number,
   }),
   editCart: PropTypes.func,
+  deleteProduct: PropTypes.func,
 };
 
 export default Navbar;

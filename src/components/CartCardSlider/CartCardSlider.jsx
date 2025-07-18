@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import CounterInput from "../CounterInput/CounterInput";
 import { useEffect, useState } from "react";
 
-const CartCardSlider = ({ item, editCart }) => {
+const CartCardSlider = ({ item, editCart, deleteProduct }) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
   useEffect(() => {
@@ -12,16 +12,16 @@ const CartCardSlider = ({ item, editCart }) => {
   }, [item.quantity]);
 
   useEffect(() => {
-    editCart(item.product, item.product.id, quantity)
+    editCart(item.product, item.product.id, quantity);
   }, [quantity]);
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <img src={item.product.image} alt="" />
       </div>
       <div className={styles.textContainer}>
-        <X className={styles.deleteItem} />
+        <X onClick={() => deleteProduct(item.product.id)} className={styles.deleteItem} />
         <h1>{item.product.title}</h1>
         <div className={styles.bottomContainer}>
           <CounterInput quantity={quantity} setQuantity={setQuantity} />
@@ -47,6 +47,7 @@ CartCardSlider.propTypes = {
     quantity: PropTypes.number,
   }),
   editCart: PropTypes.func,
+  deleteProduct: PropTypes.func,
 };
 
 export default CartCardSlider;
