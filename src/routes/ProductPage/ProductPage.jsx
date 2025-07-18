@@ -8,7 +8,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 
 const ProductPage = () => {
   const { productId } = useParams();
-  const { loading, setLoading } = useOutletContext();
+  const { loading, setLoading, addToCart } = useOutletContext();
   const location = useLocation();
   const [quantity, setQuantity] = useState(1);
 
@@ -79,7 +79,7 @@ const ProductPage = () => {
           </div>
           <div className={styles.buyButtons}>
             <button className={styles.buyNow}>Buy Now</button>
-            <button className={styles.addToCart}>Add to Cart</button>
+            <button onClick={() => addToCart(product, product.id, quantity)} className={styles.addToCart}>Add to Cart</button>
           </div>
         </div>
       </div>
