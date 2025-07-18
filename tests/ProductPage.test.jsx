@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { getByDisplayValue, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ProductPage from "../src/routes/ProductPage/ProductPage";
 import { MemoryRouter, Outlet, Routes, Route } from "react-router-dom";
 

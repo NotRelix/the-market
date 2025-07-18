@@ -30,8 +30,8 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
         setMenuOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   function toggleMenu() {
@@ -56,7 +56,13 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
               {navLink.name}
             </Link>
           ))}
-          <ShoppingCart onClick={toggleCart} className={styles.shoppingCart} />
+          <button
+            aria-label="open cart"
+            onClick={toggleCart}
+            className={styles.shoppingCart}
+          >
+            <ShoppingCart />
+          </button>
         </div>
       </nav>
       <Menu onClick={toggleMenu} className={styles.menu} />
