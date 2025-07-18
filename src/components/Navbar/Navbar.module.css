@@ -160,3 +160,9 @@ hr {
     margin-right: 44px;
   }
 }
+
+@media (max-width: 500px) {
+  .cartSlider {
+    width: 100vw;
+  }
+}

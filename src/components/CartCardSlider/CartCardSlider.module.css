@@ -96,3 +96,10 @@
 .quantityInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+@media (max-width: 500px) {
+  .counterInput .minus,
+  .counterInput .plus {
+    padding: 0px;
+  }
+}

@@ -1,7 +1,16 @@
-import PropTypes from 'prop-types';
-import styles from './CounterInput.module.css'
+import PropTypes from "prop-types";
+import styles from "./CounterInput.module.css";
 
-const CounterInput = ({ quantity, setQuantity }) => {
+const VARIANTS = {
+  DEFAULT: "default",
+  CART_SLIDER: "cartSlider",
+};
+
+const CounterInput = ({
+  quantity,
+  setQuantity,
+  variant = VARIANTS.DEFAULT,
+}) => {
   function handleMinus() {
     if (quantity <= 1) return;
     setQuantity((prev) => prev - 1);
@@ -20,7 +29,11 @@ const CounterInput = ({ quantity, setQuantity }) => {
     setQuantity(e.target.value);
   }
   return (
-    <div className={styles.quantityContainer}>
+    <div
+      className={`${styles.quantityContainer}
+        ${(variant === VARIANTS.CART_SLIDER) ? styles.cartSlider : ""}
+      }`}
+    >
       <button className={styles.minus} onClick={handleMinus}>
         -
       </button>
@@ -41,6 +54,7 @@ const CounterInput = ({ quantity, setQuantity }) => {
 CounterInput.propTypes = {
   quantity: PropTypes.number,
   setQuantity: PropTypes.func,
-}
+  variant: PropTypes.string,
+};
 
 export default CounterInput;

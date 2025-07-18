@@ -40,3 +40,13 @@
 .quantityInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+@media (max-width: 400px) {
+  .cartSlider button {
+    width: 25px;
+  }
+
+  .cartSlider input {
+    width: 30px;
+  }
+}

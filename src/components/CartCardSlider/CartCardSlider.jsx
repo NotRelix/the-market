@@ -21,10 +21,18 @@ const CartCardSlider = ({ item, editCart, deleteProduct }) => {
         <img src={item.product.image} alt="" />
       </div>
       <div className={styles.textContainer}>
-        <X onClick={() => deleteProduct(item.product.id)} className={styles.deleteItem} />
+        <X
+          onClick={() => deleteProduct(item.product.id)}
+          className={styles.deleteItem}
+        />
         <h1>{item.product.title}</h1>
         <div className={styles.bottomContainer}>
-          <CounterInput quantity={quantity} setQuantity={setQuantity} />
+          <CounterInput
+            className={styles.counterInput}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            variant="cartSlider"
+          />
           <span>${(item.product.price * item.quantity).toFixed(2)}</span>
         </div>
       </div>
