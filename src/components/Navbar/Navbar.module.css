@@ -14,6 +14,10 @@ nav {
   -webkit-backdrop-filter: blur(5px);
 }
 
+hr {
+  border: 1px solid var(--separator);
+}
+
 .logo {
   cursor: pointer;
   font-size: 24px;
@@ -36,7 +40,8 @@ nav {
 
 .link:hover,
 .shoppingCart:hover,
-.menu:hover {
+.menu:hover,
+.closeCart:hover {
   background-color: var(--link-hover-bg);
 }
 
@@ -57,12 +62,13 @@ nav {
   cursor: pointer;
 }
 
-.menuSlider {
+.menuSlider,
+.cartSlider {
   position: fixed;
   background-color: var(--primary-bg);
   width: 200px;
   height: 100vh;
-  padding-top: 60px;
+  padding-top: 56px;
   top: 0;
   right: 0;
   transform: translateX(0);
@@ -70,6 +76,20 @@ nav {
   z-index: 10000;
   display: flex;
   flex-direction: column;
+}
+
+.cartSlider {
+  width: 300px;
+  z-index: 10001;
+  padding: 0px;
+}
+
+.closeCart {
+  margin: 8px;
+  margin-left: auto;
+  padding: 8px;
+  box-sizing: content-box;
+  cursor: pointer;
 }
 
 .menuLink {
@@ -84,7 +104,8 @@ nav {
   background-color: var(--link-hover-bg);
 }
 
-.backdrop {
+.backdrop,
+.cartBackdrop {
   position: fixed;
   width: 100vw;
   height: 100vh;

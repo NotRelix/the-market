@@ -13,6 +13,7 @@
   --border-dark: rgb(85, 85, 85);
   --card-border: rgb(226, 226, 226);
   --link-hover-bg: rgb(240, 240, 240);
+  --separator: rgb(238, 238, 238);
 }
 
 * {
