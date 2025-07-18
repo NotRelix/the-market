@@ -28,24 +28,6 @@ const ProductPage = () => {
     loadSingleProduct();
   }, [productId, product, setLoading]);
 
-  function handleMinus() {
-    if (quantity <= 1) return;
-    setQuantity((prev) => prev - 1);
-  }
-
-  function handlePlus() {
-    setQuantity((prev) => prev + 1);
-  }
-
-  function handleChange(e) {
-    if (e.target.value === "") {
-      setQuantity(1);
-      return;
-    }
-    if (e.target.value < 1) return;
-    setQuantity(e.target.value);
-  }
-
   if (loading) return <Loading />;
 
   return (

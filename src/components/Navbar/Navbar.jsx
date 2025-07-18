@@ -23,11 +23,9 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
   const totalCost = cart
     .reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
     .toFixed(2);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
       if (window.innerWidth > 768) {
         setMenuOpen(false);
       }
