@@ -20,6 +20,7 @@ const navLinks = [
 const Navbar = ({ cart, editCart, deleteProduct }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const totalProducts = cart.length;
   const totalCost = cart
     .reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
     .toFixed(2);
@@ -61,6 +62,11 @@ const Navbar = ({ cart, editCart, deleteProduct }) => {
             onClick={toggleCart}
             className={styles.shoppingCart}
           >
+            {totalProducts > 0 && (
+              <div className={styles.totalProducts}>
+                <span>{totalProducts}</span>
+              </div>
+            )}
             <ShoppingCart />
           </button>
         </div>

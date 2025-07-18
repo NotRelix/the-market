@@ -50,11 +50,27 @@ hr {
 }
 
 .shoppingCart {
+  position: relative;
   padding: 8px;
   box-sizing: content-box;
   cursor: pointer;
   border: none;
-  background-color: var(--primary-bg);
+  background: none;
+}
+
+.totalProducts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 4px;
+  right: -4px;
+  font-weight: 500;
+  background-color: var(--footer-bg);
+  color: var(--primary-text-dark);
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
 }
 
 .menu {
