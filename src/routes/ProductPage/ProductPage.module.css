@@ -3,7 +3,7 @@
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  padding: 72px 0;
+  padding: 72px 8px;
 }
 
 .cardContainer {
@@ -19,6 +19,7 @@
   display: flex;
   flex: 4;
   background-position: top;
+  max-height: 400px;
 }
 
 .image {
@@ -35,8 +36,14 @@
 }
 
 .price {
-  font-size: 24px;
+  margin-top: 8px;
+  margin-bottom: auto;
+  font-size: 36px;
   font-weight: 700;
+}
+
+.quantityText {
+  margin-top: 8px;
 }
 
 .rate {
@@ -50,7 +57,11 @@
 }
 
 .description {
-  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .separator {
@@ -122,4 +133,28 @@
 .addToCart {
   background-color: var(--footer-bg);
   color: var(--primary-bg);
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-direction: column;
+    max-width: 550px;
+  }
+
+  .image {
+    height: auto;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 570px) {
+  .price {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 450px) {
+  .buyButtons {
+    flex-direction: column;
+  }
 }

@@ -60,9 +60,9 @@ const ProductPage = () => {
             <span className={styles.count}>Ratings: {product.rating.count}</span>
           </div>
           <span>Category: {product.category}</span>
-          <span className={styles.price}>${product.price}</span>
           <span className={styles.description}>{product.description}</span>
-          <span>Quantity: </span>
+          <span className={styles.price}>${product.price}</span>
+          <span className={styles.quantityText}>Quantity: </span> 
           <div className={styles.quantityContainer}>
             <button className={styles.minus} onClick={handleMinus}>-</button>
             <input className={styles.quantityInput} type="number" value={quantity} />
