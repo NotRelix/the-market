@@ -1,6 +1,6 @@
 import styles from "./Navbar.module.css";
 import { Menu, ShoppingCart, X } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CartCardSlider from "../CartCardSlider/CartCardSlider";
 import PropTypes from "prop-types";
@@ -16,7 +16,7 @@ const navLinks = [
   },
 ];
 
-const Navbar = ({ cart }) => {
+const Navbar = ({ cart, editCart }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   function toggleMenu() {
@@ -26,7 +26,7 @@ const Navbar = ({ cart }) => {
   function toggleCart() {
     setCartOpen(!cartOpen);
   }
-  console.log(cart.length);
+
   return (
     <>
       <nav>
@@ -63,16 +63,26 @@ const Navbar = ({ cart }) => {
       <div className={`${styles.cartSlider} ${cartOpen ? "" : styles.hidden}`}>
         <X className={styles.closeCart} onClick={() => setCartOpen(false)} />
         <hr />
-        <div className={styles.cartCardContainer}>
-          {cart.map((item, index) => {
-            return (
-              <>
-                <CartCardSlider key={item.product.id} item={item} />
-                {index < cart.length - 1 && <hr className={styles.separator} />}
-              </>
-            );
-          })}
-        </div>
+
+        {cart.length > 0 ? (
+          <div className={styles.cartCardContainer}>
+            {cart.map((item, index) => {
+              return (
+                <React.Fragment key={item.product.id}>
+                  <CartCardSlider item={item} editCart={editCart} />
+                  {index < cart.length - 1 && (
+                    <hr className={styles.separator} />
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </div>
+        ) : (
+          <div className={styles.emptyCart}>
+            <ShoppingCart />
+            <span>Your Cart is Empty</span>
+          </div>
+        )}
       </div>
       <div
         onClick={() => setCartOpen(false)}
@@ -100,6 +110,7 @@ Navbar.propTypes = {
     }),
     quantity: PropTypes.number,
   }),
+  editCart: PropTypes.func,
 };
 
 export default Navbar;

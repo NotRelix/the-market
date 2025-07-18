@@ -19,10 +19,22 @@ const Root = () => {
       }
     });
   }
+  function editCart(product, id, count) {
+    setCart((prev) => {
+      const exists = prev.find((item) => item.product.id === id);
+      if (exists) {
+        return prev.map((item) =>
+          item.product.id === id ? { ...item, quantity: count } : item
+        );
+      } else {
+        return [...prev, { product, quantity: count }];
+      }
+    });
+  }
   console.log(cart);
   return (
     <div className={styles.container}>
-      <Navbar cart={cart} />
+      <Navbar cart={cart} editCart={editCart} />
       <main>
         <Outlet context={{ loading, setLoading, addToCart }} />
       </main>

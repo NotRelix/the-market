@@ -5,6 +5,7 @@ import Loading from "../../components/Loading/Loading";
 import styles from "./ProductPage.module.css";
 import StarRatings from "react-star-ratings";
 import ScrollToTop from "../../components/ScrollToTop";
+import CounterInput from "../../components/CounterInput/CounterInput";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -78,21 +79,7 @@ const ProductPage = () => {
           <span className={styles.description}>{product.description}</span>
           <span className={styles.price}>${product.price}</span>
           <span className={styles.quantityText}>Quantity: </span>
-          <div className={styles.quantityContainer}>
-            <button className={styles.minus} onClick={handleMinus}>
-              -
-            </button>
-            <input
-              min="1"
-              className={styles.quantityInput}
-              type="number"
-              value={quantity}
-              onChange={handleChange}
-            />
-            <button className={styles.plus} onClick={handlePlus}>
-              +
-            </button>
-          </div>
+          <CounterInput quantity={quantity} setQuantity={setQuantity} />
           <div className={styles.buyButtons}>
             <button className={styles.buyNow}>Buy Now</button>
             <button

@@ -1,14 +1,20 @@
 import PropTypes from "prop-types";
 import styles from "./CartCardSlider.module.css";
 import { X } from "lucide-react";
+import CounterInput from "../CounterInput/CounterInput";
+import { useEffect, useState } from "react";
 
-const CartCardSlider = ({ item }) => {
-  function handleMinus() {}
+const CartCardSlider = ({ item, editCart }) => {
+  const [quantity, setQuantity] = useState(item.quantity);
 
-  function handlePlus() {}
+  useEffect(() => {
+    setQuantity(item.quantity);
+  }, [item.quantity]);
 
-  function handleChange() {}
-
+  useEffect(() => {
+    editCart(item.product, item.product.id, quantity)
+  }, [quantity]);
+  
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -18,21 +24,7 @@ const CartCardSlider = ({ item }) => {
         <X className={styles.deleteItem} />
         <h1>{item.product.title}</h1>
         <div className={styles.bottomContainer}>
-          <div className={styles.quantityContainer}>
-            <button className={styles.minus} onClick={handleMinus}>
-              -
-            </button>
-            <input
-              min="1"
-              className={styles.quantityInput}
-              type="number"
-              value={item.quantity}
-              onChange={handleChange}
-            />
-            <button className={styles.plus} onClick={handlePlus}>
-              +
-            </button>
-          </div>
+          <CounterInput quantity={quantity} setQuantity={setQuantity} />
           <span>${(item.product.price * item.quantity).toFixed(2)}</span>
         </div>
       </div>
@@ -52,8 +44,9 @@ CartCardSlider.propTypes = {
       rate: PropTypes.number,
       count: PropTypes.number,
     }),
+    quantity: PropTypes.number,
   }),
-  quantity: PropTypes.number,
+  editCart: PropTypes.func,
 };
 
 export default CartCardSlider;
