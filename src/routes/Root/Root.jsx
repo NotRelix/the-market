@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Root.module.css";
 import { Outlet } from "react-router-dom";
+import SuccessMessage from "../../components/SuccessMessage/SuccessMessage";
 
 const Root = () => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const hideTimerRef = useRef(null);
 
   function addToCart(product, id, count) {
     setCart((prev) => {
@@ -42,11 +45,28 @@ const Root = () => {
     });
   }
 
+  function handleAddToCart(product, productId, quantity) {
+    addToCart(product, productId, quantity);
+
+    setSuccessMessage(false);
+
+    setTimeout(() => {
+      setSuccessMessage(true);
+
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+
+      hideTimerRef.current = setTimeout(() => {
+        setSuccessMessage(false);
+      }, 2000);
+    }, 10);
+  }
+
   return (
     <div className={styles.container}>
       <Navbar cart={cart} editCart={editCart} deleteProduct={deleteProduct} />
       <main>
-        <Outlet context={{ loading, setLoading, addToCart }} />
+        <SuccessMessage visible={successMessage} />
+        <Outlet context={{ loading, setLoading, addToCart, handleAddToCart }} />
       </main>
       <Footer />
     </div>

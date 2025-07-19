@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import styles from "./SuccessMessage.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SuccessMessage = ({ visible }) => {
   const [shouldRender, setShouldRender] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
+    hasMounted.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted.current) return;
+
     let timeout;
 
     if (visible) {

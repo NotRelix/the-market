@@ -6,27 +6,12 @@ import styles from "./ProductPage.module.css";
 import StarRatings from "react-star-ratings";
 import ScrollToTop from "../../components/ScrollToTop";
 import CounterInput from "../../components/CounterInput/CounterInput";
-import SuccessMessage from "../../components/SuccessMessage/SuccessMessage";
 
 const ProductPage = () => {
   const { productId } = useParams();
-  const { loading, setLoading, addToCart } = useOutletContext();
+  const { loading, setLoading, handleAddToCart } = useOutletContext();
   const location = useLocation();
   const [quantity, setQuantity] = useState(1);
-  const [successMessage, setSuccessMessage] = useState(false);
-  const hideTimerRef = useRef(null);
-
-  function handleAddToCart(product, productId, quantity) {
-    addToCart(product, productId, quantity);
-    setSuccessMessage(true);
-    if (hideTimerRef.current) {
-      clearTimeout(hideTimerRef.current);
-    }
-
-    hideTimerRef.current = setTimeout(() => {
-      setSuccessMessage(false);
-    }, 3000)
-  }
 
   const [product, setProduct] = useState(location.state?.product);
   useEffect(() => {
@@ -48,7 +33,6 @@ const ProductPage = () => {
   return (
     <section className={styles.container}>
       <ScrollToTop />
-      <SuccessMessage visible={successMessage} />
       <div className={styles.cardContainer}>
         <div className={styles.imageContainer}>
           <img
