@@ -66,7 +66,7 @@ const Root = () => {
       <Navbar cart={cart} editCart={editCart} deleteProduct={deleteProduct} />
       <main>
         <SuccessMessage visible={successMessage} />
-        <Outlet context={{ loading, setLoading, addToCart, handleAddToCart }} />
+        <Outlet context={{ cart, editCart, deleteProduct, loading, setLoading, handleAddToCart }} />
       </main>
       <Footer />
     </div>
