@@ -5,6 +5,7 @@
   align-items: center;
   margin: auto;
   max-width: 1200px;
+  min-height: 100vh;
   height: 100vh;
 }
 
@@ -16,8 +17,14 @@
 .mainContent {
   display: flex;
   width: 100%;
+  min-height: 100%;
   height: 100%;
   gap: 36px;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
 }
 
 .leftContainer {
@@ -29,6 +36,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  justify-self: center;
   width: 100%;
   height: 100%;
   gap: 8px;
@@ -70,4 +78,65 @@
   display: flex;
   justify-content: space-between;
   font-weight: 500;
+  gap: 56px;
+}
+
+.paymentMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 4px;
+}
+
+.paymentMethods button {
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.paypal {
+  border: none;
+  background-color: rgb(47, 150, 240);
+  color: white;
+}
+
+.googlePay {
+  border: none;
+  background-color: rgb(38, 38, 38);
+  color: white;
+}
+
+.applePay {
+  border: 1px solid gray;
+  background-color: white;
+}
+
+@media (max-width: 1000px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .rightContainer {
+    align-self: center;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 80px 0px;
+  }
+
+  .leftContainer {
+    padding: 0 4px;
+  }
+
+  .rightContainer {
+    padding: 0 16px;
+  }
 }

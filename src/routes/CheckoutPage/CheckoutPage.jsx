@@ -3,6 +3,7 @@ import styles from "./CheckoutPage.module.css";
 import React from "react";
 import CartCardSlider from "../../components/CartCardSlider/CartCardSlider";
 import { ShoppingCart } from "lucide-react";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const CheckoutPage = () => {
   const { cart, editCart, deleteProduct } = useOutletContext();
@@ -16,7 +17,8 @@ const CheckoutPage = () => {
   const total = subTotal + shippingCost + tax;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${cart.length === 0 ? styles.center : ""}`}>
+      <ScrollToTop />
       <div className={styles.mainContent}>
         {cart.length === 0 ? (
           <div className={styles.emptyCart}>
@@ -61,6 +63,11 @@ const CheckoutPage = () => {
               <div className={styles.totalContainer}>
                 <span>Total</span>
                 <span>${total.toFixed(2)}</span>
+              </div>
+              <div className={styles.paymentMethods}>
+                <button className={styles.paypal}>Paypal</button>
+                <button className={styles.googlePay}>Google Pay</button>
+                <button className={styles.applePay}>Apple Pay</button>
               </div>
             </div>
           </>
