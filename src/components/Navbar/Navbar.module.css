@@ -120,6 +120,12 @@ hr {
 .cartCardContainer {
   padding: 8px;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cartCardContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .closeCart {

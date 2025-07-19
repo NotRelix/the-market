@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./footer.module.css";
 
 const Footer = () => {
@@ -5,29 +6,33 @@ const Footer = () => {
   const usefulLinks = [
     {
       name: "Home",
+      link: "",
     },
     {
       name: "Shop",
+      link: "shop",
     },
     {
       name: "Repository",
+      link: "https://github.com/NotRelix/the-market",
     },
     {
       name: "My Github",
+      link: "https://github.com/NotRelix",
     },
   ];
   const contacts = [
     {
-      name: "LinkedIn",
-    },
-    {
       name: "Email",
-    },
-    {
-      name: "Github",
+      link: "mailto:lim.reecesergei@gmail.com",
     },
     {
       name: "Facebook",
+      link: "https://www.facebook.com/reecesergei.lim",
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/reece-sergei-lim-059b28240/",
     },
   ];
   return (
@@ -36,10 +41,7 @@ const Footer = () => {
         <div className={styles.left}>
           <h1 className={styles.brandName}>The Market</h1>
           <p className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-            perferendis quod iure fuga est, corporis unde assumenda aut,
-            numquam, aperiam dolores deleniti dicta sed nulla necessitatibus!
-            Recusandae in nulla sit!
+            A very fun project built with React. Learned a lot especially with Vitest, PropTypes, and designing the UI. If you're seeing this, I hope you can see more of my projects. A lot more to come soon!
           </p>
         </div>
         <div className={styles.right}>
@@ -47,7 +49,9 @@ const Footer = () => {
             <h1 className={styles.heading}>Useful Links</h1>
             <ul>
               {usefulLinks.map((link) => (
-                <li key={link.name}>{link.name}</li>
+                (link.name === 'Home' || link.name === 'Shop')
+                  ? <Link className={styles.link} to={link.link} key={link.name}>{link.name}</Link>
+                  : <a className={styles.link} target="_blank" rel="noopener noreferrer" href={link.link} key={link.name}>{link.name}</a>
               ))}
             </ul>
           </div>
@@ -55,7 +59,7 @@ const Footer = () => {
             <h1 className={styles.heading}>Contact</h1>
             <ul>
               {contacts.map((link) => (
-                <li key={link.name}>{link.name}</li>
+                <a className={styles.link} target="_blank" rel="noopener noreferrer" href={link.link} key={link.name}>{link.name}</a>
               ))}
             </ul>
           </div>

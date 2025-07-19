@@ -43,7 +43,11 @@ ul {
   gap: 16px;
 }
 
-li,
+.link {
+  text-decoration: none;
+}
+
+.link,
 .description {
   color: var(--neutral-text-dark);
 }

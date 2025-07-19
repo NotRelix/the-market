@@ -14,7 +14,6 @@ const ShopPage = () => {
       setLoading(true);
       const response = await fetchProducts();
       setProducts(response.products);
-      console.log(response.products);
       setLoading(false);
     }
 
