@@ -5,6 +5,7 @@
   align-items: center;
   margin: auto;
   max-width: 1200px;
+  height: 100vh;
 }
 
 .pageTitle {
@@ -15,6 +16,7 @@
 .mainContent {
   display: flex;
   width: 100%;
+  height: 100%;
   gap: 36px;
 }
 
@@ -22,9 +24,32 @@
   flex: 3;
 }
 
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+}
+
+.emptyCartText {
+  font-weight: 500;
+}
+
+.continueShopping {
+  margin-top: 8px;
+  color: var(--primary-text-dark);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: var(--footer-bg);
+}
+
 .rightContainer {
   flex: 2;
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 12px;
