@@ -81,6 +81,10 @@
   gap: 56px;
 }
 
+.totalContainer span {
+  font-weight: 700;
+}
+
 .paymentMethods {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ import React from "react";
 import CartCardSlider from "../../components/CartCardSlider/CartCardSlider";
 import { ShoppingCart } from "lucide-react";
 import ScrollToTop from "../../components/ScrollToTop";
+import confetti from "canvas-confetti";
 
 const CheckoutPage = () => {
   const { cart, editCart, deleteProduct } = useOutletContext();
@@ -16,8 +17,16 @@ const CheckoutPage = () => {
   const tax = (subTotal + shippingCost) * 0.08725;
   const total = subTotal + shippingCost + tax;
 
+  function handlePay() {
+    confetti({ zIndex: 100000 });
+  }
+
   return (
-    <div className={`${styles.container} ${cart.length === 0 ? styles.center : ""}`}>
+    <div
+      className={`${styles.container} ${
+        cart.length === 0 ? styles.center : ""
+      }`}
+    >
       <ScrollToTop />
       <div className={styles.mainContent}>
         {cart.length === 0 ? (
@@ -65,9 +74,15 @@ const CheckoutPage = () => {
                 <span>${total.toFixed(2)}</span>
               </div>
               <div className={styles.paymentMethods}>
-                <button className={styles.paypal}>Paypal</button>
-                <button className={styles.googlePay}>Google Pay</button>
-                <button className={styles.applePay}>Apple Pay</button>
+                <button onClick={handlePay} className={styles.paypal}>
+                  Paypal
+                </button>
+                <button onClick={handlePay} className={styles.googlePay}>
+                  Google Pay
+                </button>
+                <button onClick={handlePay} className={styles.applePay}>
+                  Apple Pay
+                </button>
               </div>
             </div>
           </>

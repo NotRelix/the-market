@@ -130,6 +130,12 @@
   cursor: pointer;
 }
 
+.buyNow {
+  text-align: center;
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
 .addToCart {
   background-color: var(--footer-bg);
   color: var(--primary-bg);

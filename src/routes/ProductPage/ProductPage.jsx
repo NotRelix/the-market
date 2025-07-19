@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useOutletContext, useParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 import { fetchSingleProduct } from "../../components/api/api";
 import Loading from "../../components/Loading/Loading";
 import styles from "./ProductPage.module.css";
@@ -63,7 +68,13 @@ const ProductPage = () => {
           <span className={styles.quantityText}>Quantity: </span>
           <CounterInput quantity={quantity} setQuantity={setQuantity} />
           <div className={styles.buyButtons}>
-            <button className={styles.buyNow}>Buy Now</button>
+            <Link
+              to={"/checkout"}
+              onClick={() => handleAddToCart(product, product.id, quantity)}
+              className={styles.buyNow}
+            >
+              Buy Now
+            </Link>
             <button
               onClick={() => handleAddToCart(product, product.id, quantity)}
               className={styles.addToCart}
