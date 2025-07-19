@@ -1,12 +1,48 @@
-# React + Vite
+# The Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern online shop that has all your needs.
 
-Currently, two official plugins are available:
+## Features
+- Add to cart
+- Purchase products (not really)
+- Vitest - for testing purposes
+- PropTypes - type safety
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built with
+[![My Skills](https://skillicons.dev/icons?i=vite,react,js,html,css)](https://skillicons.dev)
 
-## Expanding the ESLint configuration
+## Tools used
+[![My Skills](https://skillicons.dev/icons?i=cloudflare,vitest,npm,git)](https://skillicons.dev)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+```bash
+git clone git@github.com:NotRelix/the-market.git
+cd the-market
+npm install
+npm run dev
+```
+## Run Tests
+```bash
+npm run test
+```
+
+## Structure
+```
+📦 the-market
+├─ src
+│  ├─ component                // all components used
+│  └─ routes                   // routes using react-router-dom
+│     ├─ CheckoutPage
+│     ├─ ErrorPage
+│     ├─ HomePage
+│     ├─ ProductPage
+│     ├─ Root
+│     ├─ ShopPage
+│     └─ routes.jsx            // routes stored here
+├─ tests                       // tests using Vitest
+│  ├─ CartCardSlider.test.jsx
+│  ├─ ProductPage.test.jsx
+│  ├─ api.test.js
+│  └─ setup.js
+└─ vite.config.js
+```
