@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../../components/api/api";
 import Loading from "../../components/Loading/Loading";
@@ -6,12 +6,27 @@ import styles from "./ProductPage.module.css";
 import StarRatings from "react-star-ratings";
 import ScrollToTop from "../../components/ScrollToTop";
 import CounterInput from "../../components/CounterInput/CounterInput";
+import SuccessMessage from "../../components/SuccessMessage/SuccessMessage";
 
 const ProductPage = () => {
   const { productId } = useParams();
   const { loading, setLoading, addToCart } = useOutletContext();
   const location = useLocation();
   const [quantity, setQuantity] = useState(1);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const hideTimerRef = useRef(null);
+
+  function handleAddToCart(product, productId, quantity) {
+    addToCart(product, productId, quantity);
+    setSuccessMessage(true);
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+    }
+
+    hideTimerRef.current = setTimeout(() => {
+      setSuccessMessage(false);
+    }, 3000)
+  }
 
   const [product, setProduct] = useState(location.state?.product);
   useEffect(() => {
@@ -33,6 +48,7 @@ const ProductPage = () => {
   return (
     <section className={styles.container}>
       <ScrollToTop />
+      <SuccessMessage visible={successMessage} />
       <div className={styles.cardContainer}>
         <div className={styles.imageContainer}>
           <img
@@ -65,7 +81,7 @@ const ProductPage = () => {
           <div className={styles.buyButtons}>
             <button className={styles.buyNow}>Buy Now</button>
             <button
-              onClick={() => addToCart(product, product.id, quantity)}
+              onClick={() => handleAddToCart(product, product.id, quantity)}
               className={styles.addToCart}
             >
               Add to Cart
